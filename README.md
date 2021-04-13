@@ -78,9 +78,9 @@ Estimate of time needed to complete: 1 hour
 
 Start time: 1:30pm
 
-Finish time: _____
+Finish time: 1:15pm
 
-Actual time needed to complete: _____
+Actual time needed to complete: 45 mins
 
 
 
@@ -88,11 +88,11 @@ Number and name of feature: Feature #2: Allow users to vote for their favorite b
 
 Estimate of time needed to complete: 2 hours
 
-Start time: 
+Start time: 1:15
 
-Finish time: _____
+Finish time: 2:15
 
-Actual time needed to complete: _____
+Actual time needed to complete: 1 hour
 
 
 
@@ -100,8 +100,8 @@ Number and name of feature: Feature 3: Bootstrap
 
 Estimate of time needed to complete: 1 hour
 
-Start time: 
+Start time: 2:15
 
-Finish time: _____
+Finish time: ~3
 
-Actual time needed to complete: _____
+Actual time needed to complete: 45 mins
