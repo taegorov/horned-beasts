@@ -41,3 +41,7 @@
   background-color: aquamarine;
   margin: 0 auto;
 }
+
+#modalWidth {
+  max-width: 350px;
+}
