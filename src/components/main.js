@@ -1,7 +1,9 @@
 import { Component } from 'react';
+import React from 'react';
 import items from '../data.json';
-import { CardColumns as BoxColumns, Card as Box } from 'react-bootstrap';
+import { CardColumns as BoxColumns, Card as Box, Container } from 'react-bootstrap';
 import PopModal from './modal.js';
+import BeastForm from './beastform.js';
 
 class Main extends Component {
   constructor(props) {
@@ -17,6 +19,7 @@ class Main extends Component {
     } else {
       const newArray = items.filter(horns => horns.horns === value);
       this.setState({ hornsArray: newArray });
+      console.log('filtering', newArray);
     }
   }
 
@@ -26,10 +29,10 @@ class Main extends Component {
       return (
         <>
           <Container>
-            <BeastForm filterFunction = {this.filterHorns}/>
+            <BeastForm filterHorns={this.filterHorns} />
           </Container>
           <BoxColumns>
-            {items.map(item => (
+            {this.state.hornsArray.map(item => (
               <LikedPic
                 title={item.title}
                 description={item.description}
@@ -42,17 +45,21 @@ class Main extends Component {
       );
     } else {
       return (
-        <BoxColumns>
-          {items.map(item => (
-            <LikedPic
-              title={item.title}
-              description={item.description}
-              imgUrl={item.image_url}
-              horns={item.horns}
-            />
-          ))}
-
-        </BoxColumns>
+        <>
+          <Container>
+            <BeastForm filterHorns={this.filterHorns} />
+          </Container>
+          <BoxColumns>
+            {items.map(item => (
+              <LikedPic
+                title={item.title}
+                description={item.description}
+                imgUrl={item.image_url}
+                horns={item.horns}
+              />
+            ))}
+          </BoxColumns>
+        </>
       );
     }
   }
