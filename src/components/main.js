@@ -4,20 +4,57 @@ import { CardColumns as BoxColumns, Card as Box } from 'react-bootstrap';
 import PopModal from './modal.js';
 
 class Main extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      hornsArray: [],
+    };
+  }
+
+  filterHorns = (value) => {
+    if (value === isNaN) {
+      this.setState({ hornsArray: [] });
+    } else {
+      const newArray = items.filter(horns => horns.horns === value);
+      this.setState({ hornsArray: newArray });
+    }
+  }
+
+
   render() {
-    return (
-      <BoxColumns>
+    if (this.state.hornsArray.length > 0) {
+      return (
+        <>
+          <Container>
+            <BeastForm filterFunction = {this.filterHorns}/>
+          </Container>
+          <BoxColumns>
+            {items.map(item => (
+              <LikedPic
+                title={item.title}
+                description={item.description}
+                imgUrl={item.image_url}
+                horns={item.horns}
+              />
+            ))}
+          </BoxColumns>
+        </>
+      );
+    } else {
+      return (
+        <BoxColumns>
+          {items.map(item => (
+            <LikedPic
+              title={item.title}
+              description={item.description}
+              imgUrl={item.image_url}
+              horns={item.horns}
+            />
+          ))}
 
-        {items.map(item => (
-          <LikedPic
-            title={item.title}
-            description={item.description}
-            imgUrl={item.image_url}
-          />
-        ))}
-
-      </BoxColumns>
-    );
+        </BoxColumns>
+      );
+    }
   }
 }
 
@@ -47,7 +84,7 @@ class LikedPic extends Component {
           handleClose={this.handleClose}
           title={this.props.title}
           description={this.props.description}
-          imgUrl={this.props.imgUrl}>            
+          imgUrl={this.props.imgUrl}>
         </PopModal>
         <Box
           bg="light"
